@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 
 namespace BookLibrary.Tests
 {
@@ -19,7 +14,7 @@ namespace BookLibrary.Tests
             {
                 Title = "C# in Depth",
                 Year = 2019,
-                PublishingHous = "Manning",
+                PublishingHouse = "Manning",
                 Author = "Jon Skeet",
                 Edition = 4,
                 Pages = 900,

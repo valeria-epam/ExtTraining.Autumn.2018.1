@@ -1,7 +1,6 @@
 ﻿using BookLibrary;
 using NUnit.Framework;
 
-
 namespace BookExtension.Tests
 {
     [TestFixture]
@@ -14,7 +13,7 @@ namespace BookExtension.Tests
             {
                 Title = "C# in Depth",
                 Year = 2019,
-                PublishingHous = "Manning",
+                PublishingHouse = "Manning",
                 Author = "Jon Skeet",
                 Edition = 4,
                 Pages = 900,
@@ -31,7 +30,7 @@ namespace BookExtension.Tests
             {
                 Title = "C# in Depth",
                 Year = 2019,
-                PublishingHous = "Manning",
+                PublishingHouse = "Manning",
                 Author = "Jon Skeet",
                 Edition = 4,
                 Pages = 900,

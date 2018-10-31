@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BookLibrary
 {
@@ -13,15 +10,21 @@ namespace BookLibrary
     public class Book : IFormattable
     {
         public string Title { get; set; }
+
         public string Author { get; set; }
+
         public int Year { get; set; }
-        public string PublishingHous { get; set; }
+
+        public string PublishingHouse { get; set; }
+
         public int Edition { get; set; }
+
         public int Pages { get; set; }
+
         public decimal Price { get; set; }
 
         /// <summary>
-        /// Returns representation of book, including Author,Title,Year,PublishingHous>
+        /// Returns representation of book, including Author,Title,Year,PublishingHouse>
         /// </summary>
         public override string ToString()
         {
@@ -33,7 +36,7 @@ namespace BookLibrary
         /// <list type="bullet">
         /// <item>
         /// <term>"V"</term>
-        /// <description>Returns representation of book, including Author,Title,Year,PublishingHous</description>
+        /// <description>Returns representation of book, including Author,Title,Year,PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"B"</term>
@@ -45,7 +48,7 @@ namespace BookLibrary
         /// </item>
         /// <item>
         /// <term>"L"</term>
-        /// <description>Returns representation of book, including Title,Year,PublishingHous</description>
+        /// <description>Returns representation of book, including Title,Year,PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"D"</term>
@@ -65,7 +68,7 @@ namespace BookLibrary
         /// </item>
         /// <item>
         /// <term>"H"</term>
-        /// <description>Returns representation of book, including only PublishingHous</description>
+        /// <description>Returns representation of book, including only PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"E"</term>
@@ -87,7 +90,7 @@ namespace BookLibrary
         /// <list type="bullet">
         /// <item>
         /// <term>"V"</term>
-        /// <description>Returns representation of book, including Author,Title,Year,PublishingHous</description>
+        /// <description>Returns representation of book, including Author,Title,Year,PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"B"</term>
@@ -99,7 +102,7 @@ namespace BookLibrary
         /// </item>
         /// <item>
         /// <term>"L"</term>
-        /// <description>Returns representation of book, including Title,Year,PublishingHous</description>
+        /// <description>Returns representation of book, including Title,Year,PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"A"</term>
@@ -115,7 +118,7 @@ namespace BookLibrary
         /// </item>
         /// <item>
         /// <term>"H"</term>
-        /// <description>Returns representation of book, including only PublishingHous</description>
+        /// <description>Returns representation of book, including only PublishingHouse</description>
         /// </item>
         /// <item>
         /// <term>"E"</term>
@@ -129,8 +132,15 @@ namespace BookLibrary
         /// </summary>
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            if (string.IsNullOrEmpty(format)) format = "V";
-            if (formatProvider == null) formatProvider = CultureInfo.CurrentCulture;
+            if (string.IsNullOrEmpty(format))
+            {
+                format = "V";
+            }
+
+            if (formatProvider == null)
+            {
+                formatProvider = CultureInfo.CurrentCulture;
+            }
 
             switch (format.ToUpperInvariant())
             {
@@ -144,7 +154,7 @@ namespace BookLibrary
                     return Year.ToString(formatProvider);
 
                 case "H":
-                    return PublishingHous?.ToString(formatProvider) ?? string.Empty;
+                    return PublishingHouse?.ToString(formatProvider) ?? string.Empty;
 
                 case "E":
                     return Edition.ToString(formatProvider);
@@ -154,7 +164,7 @@ namespace BookLibrary
 
                 case "V":
                     return "Book record: " + Author?.ToString(formatProvider) + ", " + Title?.ToString(formatProvider) + ", "
-                           + Year.ToString(formatProvider) + ", " + PublishingHous?.ToString(formatProvider);
+                           + Year.ToString(formatProvider) + ", " + PublishingHouse?.ToString(formatProvider);
                 case "B":
                     return "Book record: " + Author?.ToString(formatProvider) + ", " + Title?.ToString(formatProvider) + ", "
                            + Year.ToString(formatProvider);
@@ -163,7 +173,7 @@ namespace BookLibrary
 
                 case "L":
                     return "Book record: " + Title?.ToString(formatProvider) + ", " + Year.ToString(formatProvider) + ", "
-                           + PublishingHous?.ToString(formatProvider);
+                           + PublishingHouse?.ToString(formatProvider);
             
                 case string str when !str.Except(new[] { 'T', 'Y', 'H', 'E', 'P', 'A' }).Any():
                     return string.Join(", ", format.Select(c => this.ToString(c.ToString(), formatProvider)));

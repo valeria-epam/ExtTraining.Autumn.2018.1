@@ -13,7 +13,6 @@ namespace StringExtension
         /// <exception cref="ArgumentException">Throws when the digits of <see cref="source"/> is not valid</exception>
         public static int ToDecimal(this string source, int @base)
         {
-
             if (source == null)
             {
                 throw new ArgumentNullException(nameof(source));
@@ -42,6 +41,7 @@ namespace StringExtension
                         }
                     }
                 }
+
                 return result;
             }
             catch (OverflowException e)
@@ -56,10 +56,12 @@ namespace StringExtension
             {
                 return c - '0';
             }
+
             if (c >= 'A' && c <= 'F')
             {
                 return c - 'A' + 10;
             }
+
             if (c >= 'a' && c <= 'f')
             {
                 return c - 'a' + 10;
